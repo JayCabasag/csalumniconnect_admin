@@ -6,6 +6,7 @@ import {doc, getFirestore, collection, getDocs, getDoc, orderBy, query, limit, u
 import Modal from 'react-modal/lib/components/Modal';
 import {IoIosCloseCircleOutline} from 'react-icons/io'
 import { async } from '@firebase/util';
+import { FaArrowLeft } from 'react-icons/fa';
 
 
 const Feed = () => {
@@ -72,11 +73,16 @@ useEffect(() => {
 
 
   return (
-    <div>  
-        <MasonryLayout posts={posts} interests={usersInterests}/>
-
-      {/* Modal for Getting users Interests */}
-
+    <div>
+      <div className='bg-white p-4 flex items-center gap-x-2 rounded-md shadow'>
+            <span>
+              <FaArrowLeft className='text-slate-500 cursor-pointer' onClick={()=>navigate('/')}/>
+            </span>
+            <p className='font-bold text-slate-500'>
+              Users posts
+            </p>
+      </div>  
+      <MasonryLayout posts={posts} interests={usersInterests}/>
     </div>
   )
 }
